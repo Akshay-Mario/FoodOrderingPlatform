@@ -1,0 +1,221 @@
+{
+  "register": [],
+  "users": [
+    {
+      "id": 1,
+      "fname": "Harry",
+      "lname": "Joans",
+      "email": "harry@gmail.com",
+      "phone": 8712903745,
+      "password": "harry12",
+      "address": [
+        {}
+      ],
+      "payment": [
+        {}
+      ]
+    },
+    {
+      "id": 2,
+      "fname": "Lara",
+      "lname": "jean",
+      "email": "lara@yahoo.com",
+      "phone": 9123456708,
+      "password": "lara098",
+      "address": [
+        {}
+      ],
+      "payment": [
+        {}
+      ]
+    },
+    {
+      "id": 3,
+      "fname": "Balla",
+      "lname": "Swan",
+      "phone": 7639082367,
+      "email": "bella@gmail.com",
+      "password": "323bella",
+      "address": [
+        {}
+      ],
+      "payment": [
+        {}
+      ]
+    },
+    {
+      "id": 4,
+      "fname": "Edward",
+      "lname": "cullen",
+      "phone": 1234567889,
+      "email": "edward@gmail.com",
+      "password": "edward123",
+      "address": [
+        {}
+      ],
+      "payment": [
+        {}
+      ]
+    }
+  ],
+  "foodList": [
+    {
+      "id": 1,
+      "restaurant": "reddys biriyani zone",
+      "dishName": "roasted chicken biriyani",
+      "description": "Indian Restaurant",
+      "rating": 4,
+      "cost": 190,
+      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff"
+    },
+    {
+      "id": 2,
+      "restaurant": "kabablo",
+      "dishName": "Cajun spiced chicken",
+      "description": "Indian Restaurant",
+      "rating": 4.1,
+      "cost": 230,
+      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff"
+    },
+    {
+      "id": 3,
+      "restaurant": "main land china",
+      "dishName": "Veg Momos",
+      "description": "Chineese Restaurant",
+      "rating": 3.9,
+      "cost": 250,
+      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff"
+    },
+    {
+      "id": 4,
+      "restaurant": "beijing bites",
+      "dishName": "cripy fried chicken momos",
+      "description": "Chineese Restaurant",
+      "rating": 4.2,
+      "cost": 180,
+      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff"
+    },
+    {
+      "id": 5,
+      "restaurant": "mcdonald's",
+      "dishName": "American cheese burger",
+      "description": "American Restaurant",
+      "rating": 3.9,
+      "cost": 260,
+      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff"
+    },
+    {
+      "id": 6,
+      "restaurant": "KFC",
+      "dishName": "KFC chicken bucket",
+      "description": "American Restaurant",
+      "rating": 4.1,
+      "cost": 599,
+      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff"
+    },
+    {
+      "id": 7,
+      "restaurant": "home kitchen services",
+      "dishName": "mix non veg noodles",
+      "description": "Chineese Restaurant",
+      "rating": 3.9,
+      "cost": 100,
+      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff"
+    },
+    {
+      "id": 8,
+      "restaurant": "hotel shalimar",
+      "dishName": "chicken fried rice",
+      "description": "chineese Restaurant",
+      "rating": 4.4,
+      "cost": 190,
+      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff"
+    },
+    {
+      "id": 9,
+      "restaurant": "al arabia",
+      "dishName": "Chicken shawarma",
+      "description": "Lebaneese style Restaurant",
+      "rating": 4.2,
+      "cost": 120,
+      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff"
+    },
+    {
+      "id": 10,
+      "restaurant": "al bek",
+      "dishName": "Alfaham Chicken",
+      "description": "Lebaneese style Restaurant",
+      "rating": 4.1,
+      "cost": 230,
+      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff"
+    },
+    {
+      "id": 8,
+      "restaurant": "hotel shalimar",
+      "dishName": "chicken fried rice",
+      "description": "chineese Restaurant",
+      "rating": 4.4,
+      "cost": 190,
+      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff"
+    },
+    {
+      "id": 9,
+      "restaurant": "al arabia",
+      "dishName": "Chicken shawarma",
+      "description": "Lebaneese style Restaurant",
+      "rating": 4.2,
+      "cost": 120,
+      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff"
+    },
+    {
+      "id": 10,
+      "restaurant": "al bek",
+      "dishName": "Alfaham Chicken",
+      "description": "Lebaneese style Restaurant",
+      "rating": 4.1,
+      "cost": 230,
+      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff"
+    },
+    {
+      "feedId": 14,
+      "restaurant": "reddys biriyani zone",
+      "dishName": "roasted chicken biriyani",
+      "description": "Indian Restaurant",
+      "rating": 4,
+      "cost": 190,
+      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff",
+      "id": 11
+    },
+    {
+      "feedId": 14,
+      "restaurant": "reddys biriyani zone",
+      "dishName": "roasted chicken biriyani",
+      "description": "Indian Restaurant",
+      "rating": 4,
+      "cost": 190,
+      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff",
+      "id": 12
+    },
+    {
+      "feedId": 16,
+      "restaurant": "reddys biriyani zone",
+      "dishName": "roasted chicken biriyani",
+      "description": "Indian Restaurant",
+      "rating": 4,
+      "cost": 190,
+      "unique": 0.5204481863089581,
+      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff",
+      "id": 13
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "userid": 1,
+      "feedId": 16,
+      "orderstatus": "placed",
+      "paymentStatus": "paid",
+      "orderDateTime": "10/10/2021:7:30pm"
+    }
+  ]
+}

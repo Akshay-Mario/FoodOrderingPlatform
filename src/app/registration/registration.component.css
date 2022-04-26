@@ -1,0 +1,13 @@
+.app{
+    background-color: white;
+    padding: 10px 0px 10px 30px;
+    border-radius: 10%;
+}
+.margin-1{
+    padding-bottom: 100px;
+    padding-top: 50px;
+}
+.post{
+    position: relative;
+    bottom: 42px;
+}
