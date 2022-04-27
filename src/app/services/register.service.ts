@@ -22,4 +22,8 @@ export class RegisterService {
    return this.http.get<ILoginData>("http://localhost:3000/users?email="+formData.email).pipe(delay(1500));
   }
 
+  public resetpassword(formData: IUserData): Observable<IUserData>{
+    return this.http.put<IUserData>("http://localhost:3000/users/"+formData.id,formData).pipe(delay(1500));
+   }
+
 }

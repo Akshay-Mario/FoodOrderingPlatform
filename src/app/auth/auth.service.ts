@@ -17,6 +17,5 @@ export class AuthService {
 
   public setIsAuthenticated(isAuth: boolean): void {
     this.isAuthenticated = isAuth;
-    console.log('what!!',this.isAuthenticated)
   }
 }
