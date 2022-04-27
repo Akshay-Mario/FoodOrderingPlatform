@@ -56,6 +56,20 @@
       "payment": [
         {}
       ]
+    },
+    {
+      "id": 5,
+      "fname": "AKSHAY",
+      "lname": "S",
+      "email": "akshay1997qw@gmail.com",
+      "password": "123",
+      "phone": 0,
+      "address": [
+        {}
+      ],
+      "payment": [
+        {}
+      ]
     }
   ],
   "foodList": [

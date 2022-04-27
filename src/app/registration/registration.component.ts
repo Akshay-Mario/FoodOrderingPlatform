@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IUserData } from '../models/userdata.model';
 import { RegisterService } from '../services/register.service';
 import { MustMatch } from '../shared/must-match.validator';
@@ -17,7 +18,7 @@ export class RegistrationComponent implements OnInit {
   public loader: boolean;
   public disablebutton: boolean;
 
-  constructor(private formgroup: FormBuilder, private _userservice: RegisterService) {
+  constructor(private formgroup: FormBuilder, private _userservice: RegisterService, private router: Router) {
     this.userData = {} as IUserData;
     this.registerForm = {} as FormGroup;
     this.isregisterFormSubmitted = false;
@@ -56,7 +57,7 @@ export class RegistrationComponent implements OnInit {
       delete this.userData['checkbox']
        this._userservice.postUserRegistration(this.userData).subscribe((res:IUserData)=>{
         this.loader=false;
-        
+        this.router.navigate(["/login"]);
       })
     }
     this.isregisterFormSubmitted = true;

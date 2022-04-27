@@ -9,13 +9,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MustMatchDirective } from './shared/must-match.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
     MustMatchDirective,
-    LoginComponent
+    LoginComponent,
+    ForgotpasswordComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
