@@ -17,34 +17,34 @@ export class ForgotpasswordComponent implements OnInit {
   public isforgotpassword: boolean;
   public email: string;
 
-  constructor(private formbuider: FormBuilder,private _registerservice: RegisterService) {
+  constructor(private formbuider: FormBuilder, private _registerservice: RegisterService) {
     this.forgotpassword = {} as FormGroup;
     this.resetpassword = {} as FormGroup;
     this.isforgotFormSubmitted = false;
-    this.loader=false;
-    this.disablebutton=false;
+    this.loader = false;
+    this.disablebutton = false;
     this.isforgotpassword = true;
-   }
+  }
 
   ngOnInit(): void {
     this.initializeform();
   }
 
-  initializeform(){
+  initializeform() {
     this.forgotpassword = this.formbuider.group({
-      email:['',[Validators.required,Validators.email]]
+      email: ['', [Validators.required, Validators.email]]
     })
   }
-  onSubmit(){
-    if(!this.forgotpassword.invalid){
-    this.isforgotpassword=false;
-    this.loader=true;
-    this.disablebutton=true;
-    this.email = this.forgotpassword.getRawValue();
-    //this._registerservice.getUserDetails(this.email)
+  onSubmit() {
+    if (!this.forgotpassword.invalid) {
+      this.isforgotpassword = false;
+      this.loader = true;
+      this.disablebutton = true;
+      this.email = this.forgotpassword.getRawValue();
+      //this._registerservice.getUserDetails(this.email)
     }
-    this.isforgotFormSubmitted=true;
+    this.isforgotFormSubmitted = true;
   }
-  onSubmitreset(){}
+  onSubmitreset() { }
 
 }

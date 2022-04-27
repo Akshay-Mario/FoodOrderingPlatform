@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 import { ILoginData } from '../models/loginData.model';
 import { RegisterService } from '../services/register.service';
 
@@ -16,38 +18,52 @@ export class LoginComponent implements OnInit {
   public disablebutton: boolean;
   loginData: ILoginData;
 
-  constructor(public formbuilder: FormBuilder, private _loginservice: RegisterService) {
+  constructor(public formbuilder: FormBuilder, private _loginservice: RegisterService, private router: Router, private authservice: AuthService) {
     this.loginForm = {} as FormGroup;
     this.isloginFormSubmitted = false;
-    this.loader=false;
-    this.disablebutton=false;
-    this.loginData= {} as ILoginData;
-   }
+    this.loader = false;
+    this.disablebutton = false;
+    this.loginData = {} as ILoginData;
+    this.authservice.setIsAuthenticated(false);
+  }
 
   ngOnInit(): void {
     this.initializeformgroup();
   }
 
-  initializeformgroup(){
+  initializeformgroup() {
     this.loginForm = this.formbuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['',[Validators.required]]
-  })
+      password: ['', [Validators.required]]
+    })
   }
 
-  onSubmit(){
-    if(!this.loginForm.invalid){
-      this.loader=true;
-      this.disablebutton=true;
+  onSubmit() {
+    if (!this.loginForm.invalid) {
+      this.loader = true;
+      this.disablebutton = true;
       this.loginData = this.loginForm.getRawValue();
-      this._loginservice.getUserDetails(this.loginData).subscribe((res:ILoginData)=>{
-        this.loader=false;
-        console.log(res);
-        
+      this._loginservice.getUserDetails(this.loginData).subscribe((res: ILoginData) => {
+        if (Object.keys(res).length != 0) {
+          if (res[0].password === this.loginData.password) {
+            console.log('login successfull');
+            this.authservice.setIsAuthenticated(true);
+            this.router.navigate(["/home"]);
+          }
+          else{
+            alert('Incorrect Password');
+            this.loader = false;
+            this.disablebutton=false;
+          }
+        }
+        else{
+          alert('Email address not registered');
+          this.router.navigate(["/register"]);
+        }
       });
     }
-    this.isloginFormSubmitted=true;
+    this.isloginFormSubmitted = true;
 
   }
- 
+
 }
