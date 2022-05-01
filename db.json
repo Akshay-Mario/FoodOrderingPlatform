@@ -75,48 +75,48 @@
   "foodList": [
     {
       "id": 1,
-      "restaurant": "reddys biriyani zone",
+      "restaurant": "Reddys Biriyani Zone",
       "dishName": "roasted chicken biriyani",
       "description": "Indian Restaurant",
       "rating": 4,
       "cost": 190,
-      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff"
+      "imageUrl": "/assets/biriyani.jpg"
     },
     {
       "id": 2,
-      "restaurant": "kabablo",
+      "restaurant": "Kabablo",
       "dishName": "Cajun spiced chicken",
       "description": "Indian Restaurant",
       "rating": 4.1,
       "cost": 230,
-      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff"
+      "imageUrl": "assets/kabablo.jpg"
     },
     {
       "id": 3,
-      "restaurant": "main land china",
+      "restaurant": "Main Land China",
       "dishName": "Veg Momos",
       "description": "Chineese Restaurant",
       "rating": 3.9,
       "cost": 250,
-      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff"
+      "imageUrl": "assets/momos.jpg"
     },
     {
       "id": 4,
-      "restaurant": "beijing bites",
+      "restaurant": "Beijing Bites",
       "dishName": "cripy fried chicken momos",
       "description": "Chineese Restaurant",
       "rating": 4.2,
       "cost": 180,
-      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff"
+      "imageUrl": "assets/fried-moms.jpg"
     },
     {
       "id": 5,
-      "restaurant": "mcdonald's",
+      "restaurant": "Mcdonald's",
       "dishName": "American cheese burger",
       "description": "American Restaurant",
       "rating": 3.9,
       "cost": 260,
-      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff"
+      "imageUrl": "assets/McD7Burgers_Lead.jpg"
     },
     {
       "id": 6,
@@ -125,11 +125,11 @@
       "description": "American Restaurant",
       "rating": 4.1,
       "cost": 599,
-      "imageUrl": "http://dummyimage.com/128x100.png/ff4444/ffffff"
+      "imageUrl": "assets/kfc.jpg"
     },
     {
       "id": 7,
-      "restaurant": "home kitchen services",
+      "restaurant": "Home Kitchen Services",
       "dishName": "mix non veg noodles",
       "description": "Chineese Restaurant",
       "rating": 3.9,
@@ -230,6 +230,35 @@
       "orderstatus": "placed",
       "paymentStatus": "paid",
       "orderDateTime": "10/10/2021:7:30pm"
+    }
+  ],
+  "cart": [
+    {
+      "id": 2,
+      "restaurant": "Kabablo",
+      "dishName": "Cajun spiced chicken",
+      "description": "Indian Restaurant",
+      "rating": 4.1,
+      "cost": 230,
+      "imageUrl": "assets/kabablo.jpg"
+    },
+    {
+      "id": 5,
+      "restaurant": "Mcdonald's",
+      "dishName": "American cheese burger",
+      "description": "American Restaurant",
+      "rating": 3.9,
+      "cost": 260,
+      "imageUrl": "assets/McD7Burgers_Lead.jpg"
+    },
+    {
+      "id": 6,
+      "restaurant": "KFC",
+      "dishName": "KFC chicken bucket",
+      "description": "American Restaurant",
+      "rating": 4.1,
+      "cost": 599,
+      "imageUrl": "assets/kfc.jpg"
     }
   ]
 }

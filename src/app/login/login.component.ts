@@ -46,8 +46,10 @@ export class LoginComponent implements OnInit {
       this._loginservice.getUserDetails(this.loginData).subscribe((res: ILoginData) => {
         if (Object.keys(res).length != 0) {
           if (res[0].password === this.loginData.password) {
-            console.log('login successfull');
+            console.log('login successfull',res[0]);
+            sessionStorage.setItem('loggedindata', JSON.stringify(res));
             this.authservice.setIsAuthenticated(true);
+            localStorage.setItem('loggedinuser', res[0]);
             this.router.navigate(["/home"]);
           }
           else{

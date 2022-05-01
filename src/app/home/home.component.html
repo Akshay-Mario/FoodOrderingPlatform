@@ -1,1 +1,181 @@
-<p>home works!</p>
+<div class="container-1">
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h2 class="position-h font3" (click) = "navigatetoselected('/home')">App Name</h2>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li>
+            <div class="col-sm-2"><img class="img-responsive contain" (click) = "navigatetoselected('/home/cart')" routerLink="/home/cart" routerLinkActive="active"
+                src="assets/carts.png"></div>
+          </li>
+          <li>
+            <div class="col-sm-2"><img class="img-responsive contain" (click) = "navigatetoselected('/home/track')"routerLink="/home/track" routerLinkActive="active"
+                src="https://cdn-icons-png.flaticon.com/512/3788/3788029.png"></div>
+          </li>
+          <li>
+            <div class="col-sm-2"><img class="img-responsive contain" (click) = "navigatetoselected('/home/profile')"routerLink="/home/profile"
+                routerLinkActive="active" src="assets/settings.png"></div>
+          </li>
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <div *ngIf = "showcardscreen" >
+    <div class="container justify-content-center align-items-center paddingtopsearch">
+      <div class="navbar-form  search-padding">
+        <div class="row">
+          <input type="text" [(ngModel)] = "searchdata" class="form-control col-lg-11" placeholder="food/restaurant">
+          <button type="button" (click)="searchfood()"  class="btn btn-light">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+              viewBox="0 0 16 16">
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container  padding-to-cards">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <div *ngFor="let x of foodcarddata" class="col">
+          <div class="card  card-border" style="width: 18rem;">
+            <img [src]="x.imageUrl" class="card-img-top image-card-h" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title font3">{{x.restaurant}}</h5>
+              <div class="card-text font-card">{{x.dishName}}</div>{{x.description}}
+              <p> </p>
+              <div class="row justify-content-between">
+                <div class="align-right font3">Rating: {{x.rating}}</div>
+                <div class="align-left font3">Price: {{x.cost}}</div>
+              </div>
+              <div class="justify-content-between pad d-flex ">
+                <button class="btn btn-info btn-md"  (click)="addtocart(Addtocart,x)" type="button">Add to Cart</button>
+                <button class="btn btn-success btn-md" (click)="addtocart(Placeorder,x, 'true')" type="button">Place Order</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+  <router-outlet></router-outlet>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+
+          <h3 class="font3">APP NAME</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>APP Name</span></strong>. All Rights Reserved
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+</div>
+
+<!-- Model POPUP -->
+
+<ng-template #Addtocart let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title font3" id="modal-basic-title">{{selectedfooddetails.restaurant}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"><span
+        aria-hidden="true">&times;</span></button>
+  </div>
+  <div>
+    <img [src]="selectedfooddetails.imageUrl" class="add-cart-img col-md-12" alt="..." />
+  </div>
+  <div class="modal-body center">
+    <div class="mb-3">
+      <table>
+        <tr>
+          <td class="col-md-4"><span>Dish name: </span></td>
+          <td> <span class="font2">{{selectedfooddetails.dishName}}</span></td>
+        </tr>
+        <tr>
+          <td class="col-md-4"><span>Description: </span></td>
+          <td> <span class="font2">{{selectedfooddetails.description}}</span></td>
+        </tr>
+        <tr>
+          <td class="col-md-4"><span>Price: </span></td>
+          <td> <span class="font2">{{selectedfooddetails.cost}}</span></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="modal-footer removemargin">
+    <table>
+      <tr>
+        <td class="col-md-8 "> <button type="button" class="btn btn-success"
+            (click)="modal.close('addthistocart')">Add To Cart</button></td>
+        <td class="col-mmd-6"> <button type="button" class="btn btn-danger"
+            (click)="modal.close('Save click')">Cancel</button></td>
+      </tr>
+    </table>
+  </div>
+</ng-template>
+
+<ng-template #Placeorder let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title font3" id="modal-basic-title">{{selectedfooddetails.restaurant}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"><span
+        aria-hidden="true">&times;</span></button>
+  </div>
+  <div>
+    <img [src]="selectedfooddetails.imageUrl" class="add-cart-img col-md-12" alt="..." />
+  </div>
+  <div class="modal-body center">
+    <div class="mb-3">
+      <table>
+        <tr>
+          <td class="col-md-4"><span>Dish name: </span></td>
+          <td> <span class="font2">{{selectedfooddetails.dishName}}</span></td>
+        </tr>
+        <tr>
+          <td class="col-md-4"><span>Description: </span></td>
+          <td> <span class="font2">{{selectedfooddetails.description}}</span></td>
+        </tr>
+        <tr>
+          <td class="col-md-4"><span>Price: </span></td>
+          <td> <span class="font2">{{selectedfooddetails.cost}}</span></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="modal-footer removemargin">
+    <table>
+      <tr>
+        <td class="col-md-8 "> <button type="button" class="btn btn-success"
+            (click)="modal.close('Placeorder')" [disabled]="disableplaceorderbtn" >Place Order</button></td>
+        <td class="col-mmd-6"> <button type="button" class="btn btn-danger"
+            (click)="modal.close('Save click')">Cancel</button></td>
+      </tr>
+    </table>
+  </div>
+</ng-template>

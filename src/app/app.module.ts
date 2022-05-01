@@ -11,6 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { HomeComponent } from './home/home.component';
+import { CartComponent } from './home/cart/cart.component';
+import { TrackingComponent } from './home/tracking/tracking.component';
+import { ProfileComponent } from './home/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { HomeComponent } from './home/home.component';
     MustMatchDirective,
     LoginComponent,
     ForgotpasswordComponent,
-    HomeComponent
+    HomeComponent,
+    CartComponent,
+    TrackingComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
