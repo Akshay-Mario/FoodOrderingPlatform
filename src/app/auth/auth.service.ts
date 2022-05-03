@@ -17,5 +17,6 @@ export class AuthService {
 
   public setIsAuthenticated(isAuth: boolean): void {
     this.isAuthenticated = isAuth;
+    localStorage.setItem("isLoggedIn", "true");
   }
 }

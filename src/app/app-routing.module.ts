@@ -11,16 +11,16 @@ import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
   {path:"", redirectTo: "register", pathMatch: "full" },
-  // {path: 'home', component: HomeComponent,canActivate: [AuthGuard], children:[
-  //   {path: "cart", component: CartComponent},
-  //   {path: "track", component: TrackingComponent},
-  //   {path: "profile", component: ProfileComponent}
-  // ]},
-  {path: 'home', component: HomeComponent, children:[
+  {path: 'home', component: HomeComponent,canActivate: [AuthGuard], children:[
     {path: "cart", component: CartComponent},
     {path: "track", component: TrackingComponent},
     {path: "profile", component: ProfileComponent}
   ]},
+  // {path: 'home', component: HomeComponent, children:[
+  //   {path: "cart", component: CartComponent},
+  //   {path: "track", component: TrackingComponent},
+  //   {path: "profile", component: ProfileComponent}
+  // ]},
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
   {path: 'forgotpassword', component: ForgotpasswordComponent},

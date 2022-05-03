@@ -1,5 +1,5 @@
-<div class="container padding1">
-    <div class="card">
+<div class="container-xl padding1">
+    <div class="">
         <div class="row">
             <div class="col-md-8 cart">
                 <div class="title">
@@ -9,61 +9,52 @@
                         </div>
                     </div>
                 </div>
-                <div class="row border-top border-bottom">
-                    <div class="row main align-items-center">
-                        <div class="col-2"><img class="img-fluid" src="assets/biriyani.jpg"></div>
-                        <div class="col">
-                            <div class="row text-muted">Reddy kittchen</div>
-                            <div class="row">Biriyani</div>
-                        </div>
-                        <div class="col"> <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a> </div>
-                        <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="row main align-items-center">
-                        <div class="col-2"><img class="img-fluid" src="assets/kabablo.jpg"></div>
-                        <div class="col">
-                            <div class="row text-muted">Kabablo</div>
-                            <div class="row">Crispy Chicken</div>
-                        </div>
-                        <div class="col"> <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a> </div>
-                        <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
-                    </div>
-                </div>
-                <div class="row border-top border-bottom">
-                    <div class="row main align-items-center">
-                        <div class="col-2"><img class="img-fluid" src="assets/kfc.jpg"></div>
-                        <div class="col">
-                            <div class="row text-muted">KFC</div>
-                            <div class="row">Fried Chicken</div>
-                        </div>
-                        <div class="col"> <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a> </div>
-                        <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
-                    </div>
-                </div>
-                <div class="back-to-shop"><a href="#"></a><span class="text-muted">Back to shop</span></div>
+
+                <table>
+                    <tr>
+                        <th class="col-md-1">Items</th>
+                        <th class="col-md-1">Price</th>
+                        <th class="col-md-1">Quantity</th>
+                        <th class="col-md-3">Total</th>
+                    </tr>
+                </table>
+                <table>
+                    <tr *ngFor="let items of cartfood" class="row row border-top main align-items-center">
+                        <td class="col-sm-3">
+                            <img class="img-fluid widthimage" [src]="items.imageUrl">
+                            <div class="row">{{items.dishName}}</div>
+                            <div class="row text-muted">{{items.description}}</div>
+                        </td>
+                        <td class="col-md-2">{{items.cost}}</td>
+                        <td class="col-md-2">{{items.quantity}}</td>
+                        <td class="col-md-2">{{items.cost * items.quantity}}</td>
+                        <td class="col-md-2"><button (click)="removefromcart(items.id)"
+                                class="btn btn-danger">Remove</button></td>
+                    </tr>
+                </table>
+
+                <div class="back-to-shop"><a href="/home"><span class="text-muted">Back to shop</span></a></div>
             </div>
             <div class="col-md-4 summary">
                 <div>
                     <h5><b>Summary</b></h5>
                 </div>
-                <hr>
-                <div class="row">
-                    <div class="col" style="padding-left:0;">ITEMS 3</div>
-                    <div class="col text-right">&euro; 132.00</div>
-                </div>
-                <form>
-                    <p>SHIPPING</p> <select>
-                        <option class="text-muted">Standard-Delivery- &euro;5.00</option>
-                    </select>
-                    <p>GIVE CODE</p> <input id="code" placeholder="Enter your code">
-                </form>
                 <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                    <div class="col">TOTAL PRICE</div>
-                    <div class="col text-right">&euro; 137.00</div>
-                </div> <button class="btn">CHECKOUT</button>
+                    <div class="col">Sub Total</div>
+                    <div class="col text-right">&#x20B9; {{totalprice}}</div>
+                </div>
+                <div class="row">
+                    <div class="col">Tax</div>
+                    <div class="col text-right">&#x20B9; 50</div>
+                </div>
+                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                    <div class="col font2">Total</div>
+                    <div class="col text-right">&#x20B9; {{totalprice + 50}}</div>
+                </div>
+                <button  class="btn btn-primary col-md-12" [disabled] = "disablecheckout">Checkout/Place Order</button>
+                <button style="margin-top: 40px;" class="btn btn-light col-md-12 btn-lg" >Add Address</button>
+                <button style="margin-top: 40px;" class="btn btn-light col-md-12 btn-lg">Add Payment Details</button>
             </div>
+            
         </div>
     </div>
-</div>

@@ -234,31 +234,24 @@
   ],
   "cart": [
     {
-      "id": 2,
-      "restaurant": "Kabablo",
-      "dishName": "Cajun spiced chicken",
-      "description": "Indian Restaurant",
-      "rating": 4.1,
-      "cost": 230,
-      "imageUrl": "assets/kabablo.jpg"
-    },
-    {
-      "id": 5,
-      "restaurant": "Mcdonald's",
-      "dishName": "American cheese burger",
-      "description": "American Restaurant",
+      "id": 3,
+      "restaurant": "Main Land China",
+      "dishName": "Veg Momos",
+      "description": "Chineese Restaurant",
       "rating": 3.9,
-      "cost": 260,
-      "imageUrl": "assets/McD7Burgers_Lead.jpg"
+      "cost": 250,
+      "imageUrl": "assets/momos.jpg",
+      "quantity": 2
     },
     {
-      "id": 6,
-      "restaurant": "KFC",
-      "dishName": "KFC chicken bucket",
-      "description": "American Restaurant",
-      "rating": 4.1,
-      "cost": 599,
-      "imageUrl": "assets/kfc.jpg"
+      "id": 1,
+      "restaurant": "Reddys Biriyani Zone",
+      "dishName": "roasted chicken biriyani",
+      "description": "Indian Restaurant",
+      "rating": 4,
+      "cost": 190,
+      "imageUrl": "/assets/biriyani.jpg",
+      "quantity": 1
     }
   ]
 }

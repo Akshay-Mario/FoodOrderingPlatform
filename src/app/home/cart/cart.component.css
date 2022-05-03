@@ -122,16 +122,7 @@ input:focus::-webkit-input-placeholder {
     color: transparent
 }
 
-.btn {
-    background-color: #000;
-    border-color: #000;
-    color: white;
-    width: 100%;
-    font-size: 0.7rem;
-    margin-top: 4vh;
-    padding: 1vh;
-    border-radius: 0
-}
+
 
 .btn:focus {
     box-shadow: none;
@@ -167,3 +158,14 @@ a:hover {
     padding-top: 100px;
     padding-bottom: 100px;
 }
+
+.widthimage{
+    width: 40%;
+    justify-content: center;
+}
+
+/* .widthofmainbody{
+    width: 1200px !important;
+    position: relative;
+    left: 200%;
+} */

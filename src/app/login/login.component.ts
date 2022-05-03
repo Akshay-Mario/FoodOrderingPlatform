@@ -25,20 +25,21 @@ export class LoginComponent implements OnInit {
     this.disablebutton = false;
     this.loginData = {} as ILoginData;
     this.authservice.setIsAuthenticated(false);
+    localStorage.setItem("isLoggedIn", "false");
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.initializeformgroup();
   }
 
-  initializeformgroup() {
+  public initializeformgroup() {
     this.loginForm = this.formbuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     })
   }
 
-  onSubmit() {
+  public onSubmit(): void {
     if (!this.loginForm.invalid) {
       this.loader = true;
       this.disablebutton = true;
