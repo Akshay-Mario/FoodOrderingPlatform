@@ -1,28 +1,34 @@
-.padding2{
+.padding2 {
     padding-top: 20px;
-    
+
 }
 
-.color{
+.color {
     background-color: #ddd;
 }
 
-.nav-tabs{
+.nav-tabs {
     background-color: #ddd;
-    
+
 }
 
-.card{
+.card {
     border: 0px !important;
     border-top-left-radius: 0px !important;
     color: black;
 }
 
-.padding12{
+.padding12 {
     padding-top: 20px;
 }
 
-.padding15{
+.padding56 {
+    padding-top: 20px;
+    background-color: white;
+    padding-bottom: 50px;
+}
+
+.padding15 {
     padding-top: 15px;
 }
 
@@ -33,21 +39,53 @@
 
 img:hover {
     background-color: #c9c9c7;
-  
-  }
 
-  .contain {
+}
+
+.contain {
     padding: 5px;
     border-radius: 5px;
-  }
+}
 
-  .contain2{
+.contain2 {
     padding: 5px;
     border-radius: 5px;
     background-color: white;
-  }
+}
 
-  .paddingbt{
-      padding-bottom: 30px;
-  }
-  
+.paddingbt {
+    padding-bottom: 30px;
+}
+
+.bankcard {
+    height: 90px !important;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.card-block{
+    border-radius: 4px;
+    box-shadow: 10px 10px 30px #dddddd,
+        -10px -10px 30px #ffffff;
+}
+
+.centertext {
+    margin: auto !important;
+    padding: 10px;
+}
+
+.centertext2{
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+
+.imgcard{
+    height: 60px;
+}
+
+.centerimg{
+    padding: 10px;
+    padding-left: 30%;
+    height: 90px;
+}

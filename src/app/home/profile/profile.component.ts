@@ -17,7 +17,6 @@ export class ProfileComponent implements OnInit  {
 
   public ngOnInit(): void {
     this.userdata = JSON.parse(sessionStorage.getItem('loggedindata'));
-    console.log('what!!')
   }
 
   public navigatetohome(){

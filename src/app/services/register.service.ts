@@ -30,5 +30,8 @@ export class RegisterService {
     return this.http.put<IUserData>("http://localhost:3000/users/" + formData.id, formData).pipe(delay(1500));
   }
   
+  public getUserDetailswithid(formData: number): Observable<IUserData> {
+    return this.http.get<IUserData>("http://localhost:3000/users?id=" + formData).pipe(delay(100));
+  }
 
 }

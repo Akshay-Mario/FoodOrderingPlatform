@@ -63,7 +63,34 @@
         "landmark": "Test"
       },
       "payment": [
-        {}
+        {
+          "name": "card3",
+          "cardnumber": "EROIHROS",
+          "month": 2,
+          "year": 3221,
+          "cvv": 323
+        },
+        {
+          "name": "jaesbhjhd",
+          "cardnumber": "ksjrksskje4903",
+          "month": 2,
+          "year": 3338,
+          "cvv": 233
+        },
+        {
+          "name": "sefsdfsdfdsdf",
+          "cardnumber": "12312121312",
+          "month": 12,
+          "year": 2222,
+          "cvv": 222
+        },
+        {
+          "name": "uyguyg",
+          "cardnumber": "1312123122",
+          "month": 12,
+          "year": 21222,
+          "cvv": 222
+        }
       ]
     }
   ],

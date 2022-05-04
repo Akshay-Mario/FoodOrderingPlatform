@@ -11,63 +11,101 @@
             <a class="nav-link active">View Payment</a>
         </li>
     </ul>
+    <div class="container padding56">
+        <div *ngIf="iscardexists" class="cardout">
+            <div class="row hidden-md-up neu">
+                <div *ngFor="let x of this.cardarray; let i = index" class="col-md-4 bankcard">
+                    <div (click)="cardselected(x)" class="card">
+                        <div class="card-block">
+                            <h5 class="card-title centertext font2">Card {{i+1}}</h5>
+                            <p class="centertext2">Name: {{x.name}}</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4 bankcard">
+                    <div (click)="addcard()" class="card">
+                        <div class="card-block">
+                            <img class="imgcard centerimg" src="assets/add.png">
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div *ngIf="!iscardexists" class="card">
         <div class="container-sm padding12">
             <div class="col-md-10">
-                <form [formGroup]="addressForm" class="paddingbt" (ngSubmit)="onSubmit()">
+                <form [formGroup]="paymentForm" class="paddingbt" (ngSubmit)="onSubmit()">
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="housenumber" class="font2">House No</label>
-                            <input formControlName="housenumber" type="text" class="form-control" id="housenumber"
-                                placeholder="House Number"
-                                [ngClass]="{ 'is-invalid': isAddressFormSubmitted && addressForm.controls.housenumber.errors}">
-                            <div *ngIf="isAddressFormSubmitted && addressForm.controls.housenumber.errors"
+                            <label for="name" class="font2">Name</label>
+                            <input formControlName="name" type="text" class="form-control" id="name"
+                                placeholder="Enter name in card"
+                                [ngClass]="{ 'is-invalid': ispaymentFormSubmitted && paymentForm.controls.name.errors}">
+                            <div *ngIf="ispaymentFormSubmitted && paymentForm.controls.name.errors"
                                 class="invalid-feedback">
-                                <div *ngIf="addressForm.controls.housenumber.errors.required">House number is required
+                                <div *ngIf="paymentForm.controls.name.errors.required">Please enter name
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="city" class="font2">City</label>
-                            <input formControlName="city" type="text" class="form-control" id="City" placeholder="city"
-                                [ngClass]="{ 'is-invalid': isAddressFormSubmitted && addressForm.controls.city.errors}">
-                            <div *ngIf="isAddressFormSubmitted && addressForm.controls.city.errors"
+                            <label for="cardnumber" class="font2">Card number</label>
+                            <input formControlName="cardnumber" type="text" class="form-control" id="cardnumber"
+                                placeholder="card number"
+                                [ngClass]="{ 'is-invalid': ispaymentFormSubmitted && paymentForm.controls.cardnumber.errors}">
+                            <div *ngIf="ispaymentFormSubmitted && paymentForm.controls.cardnumber.errors"
                                 class="invalid-feedback">
-                                <div *ngIf="addressForm.controls.city.errors.required">City is required</div>
+                                <div *ngIf="paymentForm.controls.cardnumber.errors.required">Card number is required
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="state" class="font2">State</label>
-                            <input formControlName="state" type="text" class="form-control" id="state"
-                                placeholder="State"
-                                [ngClass]="{ 'is-invalid': isAddressFormSubmitted && addressForm.controls.state.errors}">
-                            <div *ngIf="isAddressFormSubmitted && addressForm.controls.state.errors"
+                        <div class="form-group col-md-4">
+                            <label for="month" class="font2">month</label>
+                            <input formControlName="month" type="number" class="form-control" id="month"
+                                placeholder="month"
+                                [ngClass]="{ 'is-invalid': ispaymentFormSubmitted && paymentForm.controls.month.errors}">
+                            <div *ngIf="ispaymentFormSubmitted && paymentForm.controls.month.errors"
                                 class="invalid-feedback">
-                                <div *ngIf="addressForm.controls.state.errors.required">State is required</div>
+                                <div *ngIf="paymentForm.controls.month.errors.required">Month is required</div>
+                                <div
+                                    *ngIf="paymentForm.controls.month.errors.min || paymentForm.controls.month.errors.max">
+                                    Month should be between 1 and 12</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="landmark" class="font2">Landmark</label>
-                            <input formControlName="landmark" type="text" class="form-control" id="landmark"
-                                placeholder="Landmark"
-                                [ngClass]="{ 'is-invalid': isAddressFormSubmitted && addressForm.controls.landmark.errors}">
-                            <div *ngIf="isAddressFormSubmitted && addressForm.controls.landmark.errors"
+                        <div class="form-group col-md-4">
+                            <label for="year" class="font2">Year</label>
+                            <input formControlName="year" type="number" class="form-control" id="year"
+                                placeholder="Year"
+                                [ngClass]="{ 'is-invalid': ispaymentFormSubmitted && paymentForm.controls.year.errors}">
+                            <div *ngIf="ispaymentFormSubmitted && paymentForm.controls.year.errors"
                                 class="invalid-feedback">
-                                <div *ngIf="addressForm.controls.landmark.errors.required">First name is required</div>
+                                <div *ngIf="paymentForm.controls.year.errors.required">Year is required</div>
+                                <div *ngIf="paymentForm.controls.year.errors.min">validity year should be atleast 2022
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="cvv" class="font2">cvv</label>
+                            <input formControlName="cvv" type="number" class="form-control" id="cvv" placeholder="cvv"
+                                [ngClass]="{ 'is-invalid': ispaymentFormSubmitted && paymentForm.controls.cvv.errors}">
+                            <div *ngIf="ispaymentFormSubmitted && paymentForm.controls.cvv.errors"
+                                class="invalid-feedback">
+                                <div *ngIf="paymentForm.controls.cvv.errors.required">cvv is required</div>
+                                <div *ngIf="paymentForm.controls.cvv.errors.min || paymentForm.controls.cvv.errors.max">
+                                    cvv should be 3 digit</div>
                             </div>
                         </div>
                     </div>
                     <button class="btn btn-outline-dark"
-                        [disabled]="isAddressFormSubmitted && addressForm.invalid || disablebutton" type="submit">
+                        [disabled]="ispaymentFormSubmitted && paymentForm.invalid || disablebutton" type="submit">
                         <div *ngIf="loader" class="spinner-border" role="status">
                             <span class="sr-only">Loading...</span>
-                        </div> Update
+                        </div> Add/Edit
                     </button>
                 </form>
             </div>
