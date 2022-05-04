@@ -53,7 +53,8 @@ export class HomeComponent implements OnInit {
   addtocart(content, selectedcard: Icartmodel, disablebtn?: string) {
     selectedcard.quantity = 1;
     this.selectedfooddetails = selectedcard;
-    if (disablebtn == 'true' && Object.keys(this.userdata[0].address).length == 1) {
+    this.userdata = JSON.parse(sessionStorage.getItem('loggedindata'));
+    if (disablebtn == 'true' && Object.keys(this.userdata.address).length == 0) {
       this.disableplaceorderbtn = true;
     }
     else {

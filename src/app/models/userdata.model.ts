@@ -1,3 +1,5 @@
+import { IaddressModel } from "./address.model";
+
 export interface IUserData{
     id:number;
     fname: string;
@@ -5,6 +7,6 @@ export interface IUserData{
     email:string;
     password:string;
     phone: number;
-    address: string[];
+    address: IaddressModel;
     payment: string[];
 }

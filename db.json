@@ -7,10 +7,8 @@
       "lname": "Joans",
       "email": "harry@gmail.com",
       "phone": 8712903745,
-      "password": "harry12",
-      "address": [
-        {}
-      ],
+      "password": "123",
+      "address": {},
       "payment": [
         {}
       ]
@@ -22,9 +20,7 @@
       "email": "lara@yahoo.com",
       "phone": 9123456708,
       "password": "lara098",
-      "address": [
-        {}
-      ],
+      "address": {},
       "payment": [
         {}
       ]
@@ -36,9 +32,7 @@
       "phone": 7639082367,
       "email": "bella@gmail.com",
       "password": "323bella",
-      "address": [
-        {}
-      ],
+      "address": {},
       "payment": [
         {}
       ]
@@ -50,23 +44,24 @@
       "phone": 1234567889,
       "email": "edward@gmail.com",
       "password": "edward123",
-      "address": [
-        {}
-      ],
+      "address": {},
       "payment": [
         {}
       ]
     },
     {
       "id": 5,
-      "fname": "AKSHAY",
-      "lname": "S",
+      "fname": "Akshay",
+      "lname": "A S",
       "email": "akshay1997qw@gmail.com",
       "password": "123",
       "phone": 0,
-      "address": [
-        {}
-      ],
+      "address": {
+        "housenumber": "SANTHI NIVAS , Thoppil Lane CTRA 124",
+        "city": "ATTINGAL",
+        "state": "Kerala",
+        "landmark": "Test"
+      },
       "payment": [
         {}
       ]
@@ -251,6 +246,16 @@
       "rating": 4,
       "cost": 190,
       "imageUrl": "/assets/biriyani.jpg",
+      "quantity": 2
+    },
+    {
+      "id": 5,
+      "restaurant": "Mcdonald's",
+      "dishName": "American cheese burger",
+      "description": "American Restaurant",
+      "rating": 3.9,
+      "cost": 260,
+      "imageUrl": "assets/McD7Burgers_Lead.jpg",
       "quantity": 1
     }
   ]

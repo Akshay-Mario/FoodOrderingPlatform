@@ -16,6 +16,7 @@ import { TrackingComponent } from './home/tracking/tracking.component';
 import { ProfileComponent } from './home/profile/profile.component';
 import { AddressComponent } from './home/profile/address/address.component';
 import { PaymentComponent } from './home/profile/payment/payment.component';
+import { UserComponent } from './home/profile/user/user.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PaymentComponent } from './home/profile/payment/payment.component';
     TrackingComponent,
     ProfileComponent,
     AddressComponent,
-    PaymentComponent
+    PaymentComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

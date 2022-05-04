@@ -41,8 +41,8 @@ export class RegistrationComponent implements OnInit {
       confirmpassword: ['', Validators.required],
       checkbox: [, Validators.required],
       phone: [0],
-      address: [[{}]],
-      payment: [[{}]]
+      address: [{}],
+      payment: [{}]
     },
     {validator:MustMatch('password','confirmpassword')}
     )

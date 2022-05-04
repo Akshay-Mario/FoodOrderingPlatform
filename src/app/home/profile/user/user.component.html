@@ -1,0 +1,93 @@
+<div class="container justify-content-center mt-5">
+    <div class="col-md-1 editicon">
+        <img *ngIf="!Isedit" (click)="Isedit=true" class="editicon contain" src="assets/edit.png">
+        <img *ngIf="Isedit" class="editicon contain2" src="assets/greenedit.png">
+
+    </div>
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page">View Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link color" routerLink="/home/profile/address">View Address</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link color" routerLink="/home/profile/payment">View Payment</a>
+        </li>
+    </ul>
+    <div *ngIf="!Isedit" class="card">
+        <div class="container-sm padding12">
+            <div class="col-md-8">
+                <div class="font2">First Name</div>
+                <div>{{userdata.fname}}</div>
+                <div class="font2 padding15">Last Name</div>
+                <div>{{userdata.lname}}</div>
+                <div class="font2 padding15">Email Address</div>
+                <div style="padding-bottom: 50px;">{{userdata.email}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="Isedit" class="card">
+        <div class="container-sm padding12">
+            <div class="col-md-10">
+                <form [formGroup]="userForm" class="paddingbt" (ngSubmit)="onSubmit()">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="firstname" class="font2">First Name</label>
+                            <input formControlName="fname" type="text" class="form-control" id="firstname"
+                                placeholder="First Name"
+                                [ngClass]="{ 'is-invalid': isUserFormSubmitted && userForm.controls.fname.errors}">
+                            <div *ngIf="isUserFormSubmitted && userForm.controls.fname.errors" class="invalid-feedback">
+                                <div *ngIf="userForm.controls.fname.errors.required">First name is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="Lastname" class="font2">Last Name</label>
+                            <input formControlName="lname" type="text" class="form-control" id="lastname"
+                                placeholder="Last Name"
+                                [ngClass]="{ 'is-invalid': isUserFormSubmitted && userForm.controls.lname.errors}">
+                            <div *ngIf="isUserFormSubmitted && userForm.controls.lname.errors" class="invalid-feedback">
+                                <div *ngIf="userForm.controls.lname.errors.required">Last name is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputEmail4" class="font2">Email Address</label>
+                            <input formControlName="email" type="email" class="form-control" id="inputEmail4"
+                                placeholder="Email Address"
+                                [ngClass]="{ 'is-invalid': isUserFormSubmitted && userForm.controls.email.errors}">
+                            <div *ngIf="isUserFormSubmitted && userForm.controls.email.errors" class="invalid-feedback">
+                                <div *ngIf="userForm.controls.email.errors.required">Email is required</div>
+                                <div *ngIf="userForm.controls.email.errors.email">Please enter valid email</div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputEmail4" class="font2">password</label>
+                            <input formControlName="password" type="password" class="form-control" id="password"
+                                placeholder="Password"
+                                [ngClass]="{ 'is-invalid': isUserFormSubmitted && userForm.controls.password.errors}">
+                            <div *ngIf="isUserFormSubmitted && userForm.controls.password.errors"
+                                class="invalid-feedback">
+                                <div *ngIf="userForm.controls.password.errors.required">First name is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline-dark"
+                        [disabled]="isUserFormSubmitted && userForm.invalid || disablebutton" type="submit">
+                        <div *ngIf="loader" class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div> Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

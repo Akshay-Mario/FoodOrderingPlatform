@@ -1,0 +1,52 @@
+.padding2{
+    
+}
+
+.color{
+    background-color: #ddd;
+}
+
+.nav-tabs{
+    background-color: #ddd;
+    
+}
+
+.card{
+    border: 0px !important;
+    border-top-left-radius: 0px !important;
+    color: black;
+}
+
+.padding12{
+    padding-top: 20px;
+}
+
+.padding15{
+    padding-top: 15px;
+}
+
+.editicon {
+    margin-left: auto;
+    margin-right: 0px !important;
+}
+
+img:hover {
+    background-color: #c9c9c7;
+  
+  }
+
+  .contain {
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .contain2{
+    padding: 5px;
+    border-radius: 5px;
+    background-color: white;
+  }
+
+  .paddingbt{
+      padding-bottom: 30px;
+  }
+  

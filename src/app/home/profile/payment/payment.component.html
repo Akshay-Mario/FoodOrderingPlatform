@@ -1,1 +1,76 @@
-<p>payment works!</p>
+<div class="container justify-content-center mt-5 padding2">
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link color" routerLink="/home/profile/user" aria-current="page">View Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link color" routerLink="/home/profile/address">View Address</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active">View Payment</a>
+        </li>
+    </ul>
+    <div *ngIf="!iscardexists" class="card">
+        <div class="container-sm padding12">
+            <div class="col-md-10">
+                <form [formGroup]="addressForm" class="paddingbt" (ngSubmit)="onSubmit()">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="housenumber" class="font2">House No</label>
+                            <input formControlName="housenumber" type="text" class="form-control" id="housenumber"
+                                placeholder="House Number"
+                                [ngClass]="{ 'is-invalid': isAddressFormSubmitted && addressForm.controls.housenumber.errors}">
+                            <div *ngIf="isAddressFormSubmitted && addressForm.controls.housenumber.errors"
+                                class="invalid-feedback">
+                                <div *ngIf="addressForm.controls.housenumber.errors.required">House number is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="city" class="font2">City</label>
+                            <input formControlName="city" type="text" class="form-control" id="City" placeholder="city"
+                                [ngClass]="{ 'is-invalid': isAddressFormSubmitted && addressForm.controls.city.errors}">
+                            <div *ngIf="isAddressFormSubmitted && addressForm.controls.city.errors"
+                                class="invalid-feedback">
+                                <div *ngIf="addressForm.controls.city.errors.required">City is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="state" class="font2">State</label>
+                            <input formControlName="state" type="text" class="form-control" id="state"
+                                placeholder="State"
+                                [ngClass]="{ 'is-invalid': isAddressFormSubmitted && addressForm.controls.state.errors}">
+                            <div *ngIf="isAddressFormSubmitted && addressForm.controls.state.errors"
+                                class="invalid-feedback">
+                                <div *ngIf="addressForm.controls.state.errors.required">State is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="landmark" class="font2">Landmark</label>
+                            <input formControlName="landmark" type="text" class="form-control" id="landmark"
+                                placeholder="Landmark"
+                                [ngClass]="{ 'is-invalid': isAddressFormSubmitted && addressForm.controls.landmark.errors}">
+                            <div *ngIf="isAddressFormSubmitted && addressForm.controls.landmark.errors"
+                                class="invalid-feedback">
+                                <div *ngIf="addressForm.controls.landmark.errors.required">First name is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline-dark"
+                        [disabled]="isAddressFormSubmitted && addressForm.invalid || disablebutton" type="submit">
+                        <div *ngIf="loader" class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div> Update
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -26,7 +26,7 @@ export class CartComponent implements OnInit {
   public ngOnInit(): void {
     this.getcartitems();
 
-    if (Object.keys(this.userdata[0].address).length == 1) {
+    if (Object.keys(this.userdata.address).length == 0) {
       this.disablecheckout = true;
     }
     else {
