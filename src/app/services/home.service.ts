@@ -19,7 +19,6 @@ export class HomeService {
    }
 
   public postaddfoodtocart(formData:Icartmodel):Observable<Icartmodel>{
-    console.log('formdata');
     return this.http.post<Icartmodel>("http://localhost:3000/cart",formData).pipe(delay(200));
   }
 

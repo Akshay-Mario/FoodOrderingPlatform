@@ -55,6 +55,7 @@ export class RegistrationComponent implements OnInit {
       this.userData = this.registerForm.getRawValue();
       delete this.userData['confirmpassword']
       delete this.userData['checkbox']
+      this.userData.payment=[];
        this._userservice.postUserRegistration(this.userData).subscribe((res:IUserData)=>{
         this.loader=false;
         this.router.navigate(["/login"]);

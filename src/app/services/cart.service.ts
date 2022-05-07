@@ -17,7 +17,6 @@ export class CartService {
    }
 
    public removefood(id: string): Observable<Ifoodmodel> {
-     console.log(id)
     return this.http.delete<Ifoodmodel>("http://localhost:3000/cart/"+id);
    }
 

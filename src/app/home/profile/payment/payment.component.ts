@@ -43,9 +43,9 @@ export class PaymentComponent implements OnInit {
     this.registerservice.getUserDetailswithid(this.userdata.id).subscribe((res: IUserData) => {
       this.userdata = res[0];
       this.cardarray = this.userdata.payment;
-      if(Object.keys(this.cardarray[0]).length == 0){
-        this.cardarray.splice(0, 1);
-      }
+        if (Object.keys(this.cardarray[0]).length == 0) {
+          this.cardarray.splice(0, 1);
+        }
     });
 
     this.initializeform();
@@ -75,7 +75,6 @@ export class PaymentComponent implements OnInit {
     if (!this.paymentForm.invalid) {
       this.loader = true;
       this.disablebutton = true;
-      console.log(this.userdata);
       this.userdata.payment.push(this.paymentForm.getRawValue());
       this.registerservice.userdatasave(this.userdata).subscribe((res: IUserData) => {
         sessionStorage.setItem('loggedindata', JSON.stringify(res));

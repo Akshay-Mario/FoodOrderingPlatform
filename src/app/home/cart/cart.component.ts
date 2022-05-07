@@ -140,7 +140,6 @@ export class CartComponent implements OnInit {
     this.order.orderDateTime =this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss');
     this.order.paymentStatus = 'Paid'
     this.homeService.placeorder(this.order).subscribe((res => {
-      console.log(res);
     }));
     setTimeout(() => {
       this.router.navigate(['/home/track']);

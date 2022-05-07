@@ -11,7 +11,6 @@ export class AuthService {
   }
 
   public isRouteAuthenticated(): boolean {
-    console.log('debug : ' , this.isAuthenticated);
     return this.isAuthenticated;
   }
 

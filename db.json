@@ -100,8 +100,28 @@
       "email": "akshay@gmail.com",
       "password": "123",
       "phone": 0,
-      "address": {},
-      "payment": {}
+      "address": {
+        "housenumber": "SANTHI NIVAS , Thoppil Lane CTRA 124",
+        "city": "ATTINGAL",
+        "state": "Kerala",
+        "landmark": "123"
+      },
+      "payment": [
+        {
+          "name": "Productionserver",
+          "cardnumber": "143234243",
+          "month": 2,
+          "year": 3323,
+          "cvv": 345
+        },
+        {
+          "name": "6hgdjggj",
+          "cardnumber": "123",
+          "month": 12,
+          "year": 2123,
+          "cvv": 233
+        }
+      ]
     }
   ],
   "foodList": [
@@ -286,6 +306,22 @@
       "orderDateTime": "05/07/2022 2:08:02",
       "paymentStatus": "Paid",
       "id": 5
+    },
+    {
+      "userid": 6,
+      "feedid": 2,
+      "orderstatus": "Placed",
+      "orderDateTime": "05/07/2022 2:41:14",
+      "paymentStatus": "Paid",
+      "id": 6
+    },
+    {
+      "userid": 6,
+      "feedid": 2,
+      "orderstatus": "Placed",
+      "orderDateTime": "05/07/2022 2:41:35",
+      "paymentStatus": "Paid",
+      "id": 7
     }
   ],
   "cart": [

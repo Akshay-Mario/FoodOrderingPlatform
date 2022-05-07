@@ -58,7 +58,6 @@ export class AddressComponent implements OnInit {
       this.disablebutton = true;
       this.userdata.address = this.addressForm.getRawValue();
       this.regservice.userdatasave(this.userdata).subscribe((res: IUserData) => {
-        console.log(res);
         sessionStorage.setItem('loggedindata', JSON.stringify(res));
       });
       setTimeout(() => {

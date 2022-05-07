@@ -98,7 +98,8 @@
         <div class="row">
 
 
-          <h3 class="font3">APP NAME</h3>
+          <h3 class="font3" class="col-md-6">APP NAME</h3>
+          <div class="col-md-6 font2">Date: <span class="myfont">{{date}}</span> Time: <span class="myfont">{{time}}</span></div>
         </div>
       </div>
     </div>
@@ -213,7 +214,8 @@
       <div><input class="col-md-12 popupmargin form-control" placeholder="Enter Account Number" type="text"></div>
       <div><input class="col-md-12 popupmargin form-control" placeholder="Enter Name" type="text"></div>
       <div><input class="col-md-12 popupmargin form-control" placeholder="IFSC code" type="text"></div>
-      <button (click)="modal.close('placeorder')" class="btn btn-primary btnmar col-md-8">Pay {{selectedfooddetails.cost}}</button>
+      <button (click)="modal.close('placeorder')" class="btn btn-primary btnmar col-md-8">Pay
+        {{selectedfooddetails.cost}}</button>
     </div>
     <div *ngIf="card" class="col-md-12">
       <p class="font2 popupmargin">Enter Card Details</p>
@@ -232,10 +234,14 @@
         </div>
       </div>
       <div class="col-md-12">
-        <div><input [(ngModel)]="cardnumber" class="col-md-12 popupmargin form-control" placeholder="Enter Account Number" type="text"></div>
-        <div><input [(ngModel)]="cardname"  class="col-md-12 popupmargin form-control" placeholder="Enter Name" type="text"></div>
-        <div><input [(ngModel)]="cardcvv"  class="col-md-12 popupmargin form-control" placeholder="IFSC code" type="text"></div>
-        <button (click)="modal.close('placeorder')" class="btn btn-primary btnmar col-md-8">Pay {{selectedfooddetails.cost}}</button>
+        <div><input [(ngModel)]="cardnumber" class="col-md-12 popupmargin form-control"
+            placeholder="Enter Account Number" type="text"></div>
+        <div><input [(ngModel)]="cardname" class="col-md-12 popupmargin form-control" placeholder="Enter Name"
+            type="text"></div>
+        <div><input [(ngModel)]="cardcvv" class="col-md-12 popupmargin form-control" placeholder="IFSC code"
+            type="text"></div>
+        <button (click)="modal.close('placeorder')" class="btn btn-primary btnmar col-md-8">Pay
+          {{selectedfooddetails.cost}}</button>
       </div>
     </div>
     <div *ngIf="qr" class="col-md-12">

@@ -38,7 +38,7 @@ export class ForgotpasswordComponent implements OnInit {
     this.success = false;
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.initializeform();
   }
 
@@ -83,7 +83,6 @@ export class ForgotpasswordComponent implements OnInit {
       this.disableresetbutton = true;
       this.updatepassworddata.password = this.resetpasswordform.controls.password.value;
       this._registerservice.resetpassword(this.updatepassworddata).subscribe((res: IUserData) => {
-        console.log("result", res);
         if(res.password == this.updatepassworddata.password)
           this.success = true;
           setTimeout(() => {

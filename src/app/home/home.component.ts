@@ -24,6 +24,8 @@ export class HomeComponent implements OnInit {
   public searchdata: string;
   public disableplaceorderbtn: boolean;
   public userdata: IUserData;
+  public date: string;
+  public time: string;
 
 
   constructor(public homeService: HomeService, private modalService: NgbModal, private router: Router,
@@ -42,12 +44,15 @@ export class HomeComponent implements OnInit {
     this.cardname = '';
     this.cardcvv = null;
     this.order = {} as IOrdermodel;
+    this.date = this.datepipe.transform((new Date), 'MM/dd/yyyy');
+    this.time = this.datepipe.transform((new Date), 'h:mm:ss');
+
+    
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getCardData();
     this.router.navigate(['/home']);
-    console.log('hello : ', sessionStorage.getItem('loggedindata'));
     this.userdata = JSON.parse(sessionStorage.getItem('loggedindata'));
     this.cardarray = this.userdata.payment;
   }
@@ -116,7 +121,6 @@ export class HomeComponent implements OnInit {
       if (logicx != null && res2.length != 0 && res2[0].dishName != undefined) {
         logicx.quantity = logicx.quantity + 1;
         this.homeService.updatequantity(logicx).subscribe((result) => {
-          console.log(result);
           setTimeout(() => {
             this.router.navigate(['/home/cart']);
           }, 500);
@@ -126,7 +130,6 @@ export class HomeComponent implements OnInit {
       else {
         logicx = this.selectedfooddetails;
         this.homeService.postaddfoodtocart(logicx).subscribe((res: Icartmodel) => {
-          console.log(res);
         });
         setTimeout(() => {
           this.router.navigate(['/home/cart']);
@@ -200,7 +203,6 @@ export class HomeComponent implements OnInit {
     this.order.orderDateTime = this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss');
     this.order.paymentStatus = 'Paid'
     this.homeService.placeorder(this.order).subscribe((res => {
-      console.log(res);
     }));
     setTimeout(() => {
       this.navigatetoselected('/home/track');
