@@ -63,7 +63,7 @@ export class PaymentComponent implements OnInit {
   }
 
   public addoredit(): void {
-    if (this.userdata.payment.length == 1) {
+    if (Object.keys(this.userdata.payment).length == 0) {
       this.iscardexists = false;
     }
     else

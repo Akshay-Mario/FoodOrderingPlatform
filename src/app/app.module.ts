@@ -17,6 +17,7 @@ import { ProfileComponent } from './home/profile/profile.component';
 import { AddressComponent } from './home/profile/address/address.component';
 import { PaymentComponent } from './home/profile/payment/payment.component';
 import { UserComponent } from './home/profile/user/user.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { UserComponent } from './home/profile/user/user.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

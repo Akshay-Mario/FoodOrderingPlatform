@@ -3,24 +3,35 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h2 class="position-h font3" (click) = "navigatetoselected('/home')">App Name</h2>
+      <h2 class="position-h font3" (click)="navigatetohome()">App Name</h2>
 
       <nav id="navbar" class="navbar">
         <ul>
           <li>
-            <div class="col-sm-2"><img class="img-responsive contain" (click) = "navigatetoselected('/home/cart')" routerLink="/home/cart" routerLinkActive="active"
-                src="assets/carts.png"></div>
+            <div class="col-sm-2"><img class="img-responsive contain" (click)="navigatetoselected('/home/cart')"
+                routerLink="/home/cart" routerLinkActive="active" src="assets/carts.png"></div>
           </li>
           <li>
-            <div class="col-sm-2"><img class="img-responsive contain" (click) = "navigatetoselected('/home/track')"routerLink="/home/track" routerLinkActive="active"
+            <div class="col-sm-2"><img class="img-responsive contain" (click)="navigatetoselected('/home/track')"
+                routerLink="/home/track" routerLinkActive="active"
                 src="https://cdn-icons-png.flaticon.com/512/3788/3788029.png"></div>
           </li>
           <li>
-            <div class="col-sm-2"><img class="img-responsive contain" (click) = "navigatetoselected('/home/profile/user')" routerLink="/home/profile"
-                routerLinkActive="active" src="assets/settings.png"></div>
+            <div class="col-sm-2"><img class="img-responsive contain" (click)="navigatetoselected('/home/profile/user')"
+                routerLink="/home/profile" routerLinkActive="active" src="assets/settings.png"></div>
           </li>
           <li>
-            <div (click) = "navigatetoselected('/login')" class="col-sm-2"><svg id="SvgjsSvg1011" width="32" height="32" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"><defs id="SvgjsDefs1012"></defs><g id="SvgjsG1013"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" width="32" height="32"><path d="M17,2H7C5.3,2,4,3.3,4,5v6h8.6l-2.3-2.3c-0.4-0.4-0.4-1,0-1.4c0.4-0.4,1-0.4,1.4,0l4,4c0.4,0.4,0.4,1,0,1.4c0,0,0,0,0,0	l-4,4c-0.4,0.4-1,0.4-1.4,0c-0.4-0.4-0.4-1,0-1.4l2.3-2.3H4v6c0,1.7,1.3,3,3,3h10c1.7,0,3-1.3,3-3V5C20,3.3,18.7,2,17,2z" fill="#de3737" class="color000 svgShape"></path></svg></g></svg></div>
+            <div (click)="navigatetoselected('/login')" class="col-sm-2"><svg id="SvgjsSvg1011" width="32" height="32"
+                xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:svgjs="http://svgjs.com/svgjs">
+                <defs id="SvgjsDefs1012"></defs>
+                <g id="SvgjsG1013"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"
+                    viewBox="0 0 24 24" width="32" height="32">
+                    <path
+                      d="M17,2H7C5.3,2,4,3.3,4,5v6h8.6l-2.3-2.3c-0.4-0.4-0.4-1,0-1.4c0.4-0.4,1-0.4,1.4,0l4,4c0.4,0.4,0.4,1,0,1.4c0,0,0,0,0,0	l-4,4c-0.4,0.4-1,0.4-1.4,0c-0.4-0.4-0.4-1,0-1.4l2.3-2.3H4v6c0,1.7,1.3,3,3,3h10c1.7,0,3-1.3,3-3V5C20,3.3,18.7,2,17,2z"
+                      fill="#de3737" class="color000 svgShape"></path>
+                  </svg></g>
+              </svg></div>
           </li>
 
         </ul>
@@ -30,12 +41,12 @@
     </div>
   </header><!-- End Header -->
 
-  <div *ngIf = "showcardscreen" >
+  <div *ngIf="showcardscreen">
     <div class="container justify-content-center align-items-center paddingtopsearch">
       <div class="navbar-form  search-padding">
         <div class="row">
-          <input type="text" [(ngModel)] = "searchdata" class="form-control col-lg-11" placeholder="food/restaurant">
-          <button type="button" (click)="searchfood()"  class="btn btn-light">
+          <input type="text" [(ngModel)]="searchdata" class="form-control col-lg-11" placeholder="food/restaurant">
+          <button type="button" (click)="searchfood()" class="btn btn-light">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
               viewBox="0 0 16 16">
               <path
@@ -61,8 +72,9 @@
                 <div class="align-left font3">Price: {{x.cost}}</div>
               </div>
               <div class="justify-content-between pad d-flex ">
-                <button class="btn btn-info btn-md"  (click)="addtocart(Addtocart,x)" type="button">Add to Cart</button>
-                <button class="btn btn-success btn-md" (click)="addtocart(Placeorder,x, 'true')" type="button">Place Order</button>
+                <button class="btn btn-info btn-md" (click)="addtocart(Addtocart,x)" type="button">Add to Cart</button>
+                <button class="btn btn-success btn-md" (click)="addtocart(Placeorder,x, 'true')" type="button">Place
+                  Order</button>
               </div>
 
             </div>
@@ -135,8 +147,8 @@
   <div class="modal-footer removemargin">
     <table>
       <tr>
-        <td class="col-md-8 "> <button type="button" class="btn btn-success"
-            (click)="modal.close('addthistocart')">Add To Cart</button></td>
+        <td class="col-md-8 "> <button type="button" class="btn btn-success" (click)="modal.close('addthistocart')">Add
+            To Cart</button></td>
         <td class="col-mmd-6"> <button type="button" class="btn btn-danger"
             (click)="modal.close('Save click')">Cancel</button></td>
       </tr>
@@ -174,11 +186,61 @@
   <div class="modal-footer removemargin">
     <table>
       <tr>
-        <td class="col-md-8 "> <button type="button" class="btn btn-success"
-            (click)="modal.close('Placeorder')" [disabled]="disableplaceorderbtn" >Place Order</button></td>
+        <td class="col-md-8 "> <button type="button" class="btn btn-success" (click)="confirmorder(Confirmorder)"
+            [disabled]="disableplaceorderbtn">Place Order</button></td>
         <td class="col-mmd-6"> <button type="button" class="btn btn-danger"
             (click)="modal.close('Save click')">Cancel</button></td>
       </tr>
     </table>
+  </div>
+</ng-template>
+
+<ng-template #Confirmorder let-modal>
+  <div class="modal-header col-lg-12">
+    <h4 class="modal-title">Pay with</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"><span
+        aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="navbar-collapse" id="navbarNav">
+    <button (click)="onplaceorderpopup('bank')" [ngClass]="bank? 'btn btn-success' : 'btn btn-light'"
+      class="col-md-4">Bank</button>
+    <button (click)="onplaceorderpopup('card')" [ngClass]="card? 'btn btn-success' : 'btn btn-light'"
+      class="col-md-4">card</button>
+    <button (click)="onplaceorderpopup('qr')" [ngClass]="qr? 'btn btn-success' : 'btn btn-light'" class="col-md-4">QR
+      code</button>
+    <div *ngIf="bank" class="col-md-12">
+      <p class="font2 popupmargin">Enter Bank Details</p>
+      <div><input class="col-md-12 popupmargin form-control" placeholder="Enter Account Number" type="text"></div>
+      <div><input class="col-md-12 popupmargin form-control" placeholder="Enter Name" type="text"></div>
+      <div><input class="col-md-12 popupmargin form-control" placeholder="IFSC code" type="text"></div>
+      <button (click)="modal.close('placeorder')" class="btn btn-primary btnmar col-md-8">Pay {{selectedfooddetails.cost}}</button>
+    </div>
+    <div *ngIf="card" class="col-md-12">
+      <p class="font2 popupmargin">Enter Card Details</p>
+      <div class="container padding56">
+        <div class="row hidden-md-up neu">
+          <div *ngFor="let x of this.cardarray; let i = index" class="col-md-4 bankcard">
+            <div (click)="cardselected(x)" class="card">
+              <div class="card-block">
+                <h5 class="card-title centertext font2">Card {{i+1}}</h5>
+                <p class="centertext2">Name: {{x.name}}</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div><input [(ngModel)]="cardnumber" class="col-md-12 popupmargin form-control" placeholder="Enter Account Number" type="text"></div>
+        <div><input [(ngModel)]="cardname"  class="col-md-12 popupmargin form-control" placeholder="Enter Name" type="text"></div>
+        <div><input [(ngModel)]="cardcvv"  class="col-md-12 popupmargin form-control" placeholder="IFSC code" type="text"></div>
+        <button (click)="modal.close('placeorder')" class="btn btn-primary btnmar col-md-8">Pay {{selectedfooddetails.cost}}</button>
+      </div>
+    </div>
+    <div *ngIf="qr" class="col-md-12">
+      <p class="font2 popupmargin">scan QR code to pay</p>
+      <img class="col-md-8 btnmar" src="assets/qr.JPG">
+    </div>
   </div>
 </ng-template>

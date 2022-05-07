@@ -64,34 +64,44 @@
       },
       "payment": [
         {
-          "name": "card3",
-          "cardnumber": "EROIHROS",
+          "name": "csrsd",
+          "cardnumber": "12321213212232",
           "month": 2,
-          "year": 3221,
-          "cvv": 323
+          "year": 23132,
+          "cvv": 112
         },
         {
-          "name": "jaesbhjhd",
-          "cardnumber": "ksjrksskje4903",
-          "month": 2,
-          "year": 3338,
-          "cvv": 233
-        },
-        {
-          "name": "sefsdfsdfdsdf",
-          "cardnumber": "12312121312",
+          "name": "Wow",
+          "cardnumber": "876439827924",
           "month": 12,
-          "year": 2222,
+          "year": 2322,
           "cvv": 222
         },
         {
-          "name": "uyguyg",
-          "cardnumber": "1312123122",
-          "month": 12,
-          "year": 21222,
-          "cvv": 222
+          "name": "csrd 3",
+          "cardnumber": "elkwelkw",
+          "month": 1,
+          "year": 2212,
+          "cvv": 121
+        },
+        {
+          "name": "test4",
+          "cardnumber": "4342242",
+          "month": 2,
+          "year": 2323,
+          "cvv": 232
         }
       ]
+    },
+    {
+      "id": 6,
+      "fname": "AKSHAY",
+      "lname": "S",
+      "email": "akshay@gmail.com",
+      "password": "123",
+      "phone": 0,
+      "address": {},
+      "payment": {}
     }
   ],
   "foodList": [
@@ -252,37 +262,41 @@
       "orderstatus": "placed",
       "paymentStatus": "paid",
       "orderDateTime": "10/10/2021:7:30pm"
+    },
+    {
+      "userid": 5,
+      "feedid": 2,
+      "orderstatus": "Placed",
+      "orderDateTime": "05/07/2022 12:03:22",
+      "paymentStatus": "Paid",
+      "id": 3
+    },
+    {
+      "userid": 5,
+      "feedid": 4,
+      "orderstatus": "Placed",
+      "orderDateTime": "05/07/2022 12:09:44",
+      "paymentStatus": "Paid",
+      "id": 4
+    },
+    {
+      "userid": 6,
+      "feedid": 2,
+      "orderstatus": "Placed",
+      "orderDateTime": "05/07/2022 2:08:02",
+      "paymentStatus": "Paid",
+      "id": 5
     }
   ],
   "cart": [
     {
-      "id": 3,
-      "restaurant": "Main Land China",
-      "dishName": "Veg Momos",
-      "description": "Chineese Restaurant",
-      "rating": 3.9,
-      "cost": 250,
-      "imageUrl": "assets/momos.jpg",
-      "quantity": 2
-    },
-    {
-      "id": 1,
-      "restaurant": "Reddys Biriyani Zone",
-      "dishName": "roasted chicken biriyani",
+      "id": 2,
+      "restaurant": "Kabablo",
+      "dishName": "Cajun spiced chicken",
       "description": "Indian Restaurant",
-      "rating": 4,
-      "cost": 190,
-      "imageUrl": "/assets/biriyani.jpg",
-      "quantity": 2
-    },
-    {
-      "id": 5,
-      "restaurant": "Mcdonald's",
-      "dishName": "American cheese burger",
-      "description": "American Restaurant",
-      "rating": 3.9,
-      "cost": 260,
-      "imageUrl": "assets/McD7Burgers_Lead.jpg",
+      "rating": 4.1,
+      "cost": 230,
+      "imageUrl": "assets/kabablo.jpg",
       "quantity": 1
     }
   ]

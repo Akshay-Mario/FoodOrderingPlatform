@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { Icartmodel } from '../models/cart.model';
 import { Ifoodmodel } from '../models/food.model';
+import { IOrdermodel } from '../models/order.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,10 @@ export class HomeService {
 
    public updatequantity(formData: Icartmodel): Observable<Icartmodel>{
     return this.http.put<Icartmodel>("http://localhost:3000/cart/"+formData.id,formData).pipe(delay(200));
+   }
+
+   public placeorder(orderdata: IOrdermodel): Observable<IOrdermodel>{
+    return this.http.post<IOrdermodel>("http://localhost:3000/orders",orderdata).pipe(delay(200));
    }
 
 

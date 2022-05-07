@@ -51,10 +51,63 @@
                     <div class="col font2">Total</div>
                     <div class="col text-right">&#x20B9; {{totalprice + 50}}</div>
                 </div>
-                <button  class="btn btn-primary col-md-12" [disabled] = "disablecheckout">Checkout/Place Order</button>
-                <button style="margin-top: 40px;" routerLink="/home/profile/address" class="btn btn-light col-md-12 btn-lg" >Add Address</button>
-                <button style="margin-top: 40px;"  routerLink="/home/profile/payment" class="btn btn-light col-md-12 btn-lg">Add Payment Details</button>
+                <button (click)="confirmorder(Confirmorder)" class="btn btn-primary col-md-12" [disabled]="disablecheckout">Checkout/Place Order</button>
+                <button style="margin-top: 40px;" routerLink="/home/profile/address"
+                    class="btn btn-light col-md-12 btn-lg">Add Address</button>
+                <button style="margin-top: 40px;" routerLink="/home/profile/payment"
+                    class="btn btn-light col-md-12 btn-lg">Add Payment Details</button>
             </div>
-            
+
         </div>
     </div>
+</div>
+
+<ng-template #Confirmorder let-modal>
+    <div class="modal-header col-lg-12">
+      <h4 class="modal-title">Pay with</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"><span
+          aria-hidden="true">&times;</span></button>
+    </div>
+    <div class="navbar-collapse" id="navbarNav">
+      <button (click)="onplaceorderpopup('bank')" [ngClass]="bank? 'btn btn-success' : 'btn btn-light'"
+        class="col-md-4">Bank</button>
+      <button (click)="onplaceorderpopup('card')" [ngClass]="card? 'btn btn-success' : 'btn btn-light'"
+        class="col-md-4">card</button>
+      <button (click)="onplaceorderpopup('qr')" [ngClass]="qr? 'btn btn-success' : 'btn btn-light'" class="col-md-4">QR
+        code</button>
+      <div *ngIf="bank" class="col-md-12">
+        <p class="font2 popupmargin">Enter Bank Details</p>
+        <div><input class="col-md-12 popupmargin form-control" placeholder="Enter Account Number" type="text"></div>
+        <div><input class="col-md-12 popupmargin form-control" placeholder="Enter Name" type="text"></div>
+        <div><input class="col-md-12 popupmargin form-control" placeholder="IFSC code" type="text"></div>
+        <button (click)="modal.close('placeorder')" class="btn btn-primary btnmar col-md-8">Pay &#x20B9; {{totalprice}}</button>
+      </div>
+      <div *ngIf="card" class="col-md-12">
+        <p class="font2 popupmargin">Enter Card Details</p>
+        <div class="container padding56">
+          <div class="row hidden-md-up neu">
+            <div *ngFor="let x of this.cardarray; let i = index" class="col-md-4 bankcard">
+              <div (click)="cardselected(x)" class="card">
+                <div class="card-block">
+                  <h5 class="card-title centertext font2">Card {{i+1}}</h5>
+                  <p class="centertext2">Name: {{x.name}}</p>
+                </div>
+              </div>
+  
+            </div>
+  
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div><input [(ngModel)]="cardnumber" class="col-md-12 popupmargin form-control" placeholder="Enter Account Number" type="text"></div>
+          <div><input [(ngModel)]="cardname"  class="col-md-12 popupmargin form-control" placeholder="Enter Name" type="text"></div>
+          <div><input [(ngModel)]="cardcvv"  class="col-md-12 popupmargin form-control" placeholder="IFSC code" type="text"></div>
+          <button (click)="modal.close('placeorder')" class="btn btn-primary btnmar col-md-8">Pay &#x20B9; {{totalprice}}</button>
+        </div>
+      </div>
+      <div *ngIf="qr" class="col-md-12">
+        <p class="font2 popupmargin">scan QR code to pay</p>
+        <img class="col-md-8 btnmar" src="assets/qr.JPG">
+      </div>
+    </div>
+  </ng-template>
