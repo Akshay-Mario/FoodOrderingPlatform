@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Loader } from '@googlemaps/js-api-loader';
 import { IOrdermodel } from 'src/app/models/order.model';
 import { IUserData } from 'src/app/models/userdata.model';
 import { OrderService } from 'src/app/services/order.service';
@@ -14,6 +15,7 @@ export class TrackingComponent implements OnInit {
   public allorders: IOrdermodel[];
   public userdata: IUserData;
   public orderstatus: string;
+  @ViewChild('maps') Maps: HTMLElement;
 
   constructor(private orderservice: OrderService) {
     this.searchdata = null;
@@ -25,7 +27,12 @@ export class TrackingComponent implements OnInit {
   public ngOnInit(): void {
 
     this.getorderedfood();
+    this.getLocation();
 
+
+  }
+
+  public ngAfterViewInit(): void{
   }
 
   public getorderedfood(): void{
@@ -56,6 +63,21 @@ status(x: string){
       this.orderstatus = 'Placed'    
     });
     this.status('Placed');
+    
+  }
+
+  public getLocation(){
+    console.log(document.getElementById("map") as HTMLElement)
+    const loader = new Loader({
+      apiKey: "#yourAPi#",
+      version: "weekly",
+    });
+    loader.load().then(() => {
+       new google.maps.Map(document.getElementById("map") as HTMLElement, {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 8,
+      });
+    });
     
   }
 

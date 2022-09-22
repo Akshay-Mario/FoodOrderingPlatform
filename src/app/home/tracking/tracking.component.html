@@ -16,7 +16,7 @@
   <div class="container pad2">
       <p class="font2 paddingtop">Your Order Status</p>
       <div class="col-md-12">
-        <div class="card col-md-11">
+        <div class="card col-md-11 pad">
             <ul class="list-group list-group-flush">
               <li *ngFor="let x of allorders"  class="list-group-item">
                   <div>
@@ -28,8 +28,13 @@
                   <div>
                       Status: {{orderstatus}}
                   </div>
+                  
               </li>
             </ul>
+            
+            <div class="full" id="map"></div>
+
           </div>
+         
       </div>
   </div>

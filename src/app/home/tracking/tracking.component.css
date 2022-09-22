@@ -16,3 +16,13 @@
   .pad2{
       padding-bottom: 100px;
   }
+
+  .full{
+    width: 50vw;
+    height: 50vh;
+    margin-bottom: 50px !important;
+  }
+
+  .pad{
+    margin-bottom: 200px !important;
+  }
