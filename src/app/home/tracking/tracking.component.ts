@@ -15,6 +15,7 @@ export class TrackingComponent implements OnInit {
   public allorders: IOrdermodel[];
   public userdata: IUserData;
   public orderstatus: string;
+  public coordinates: any;
   @ViewChild('maps') Maps: HTMLElement;
 
   constructor(private orderservice: OrderService) {
@@ -29,7 +30,6 @@ export class TrackingComponent implements OnInit {
     this.getorderedfood();
     this.getLocation();
 
-
   }
 
   public ngAfterViewInit(): void{
@@ -41,7 +41,7 @@ export class TrackingComponent implements OnInit {
       this.orderstatus = 'Placed'    
     });
     this.status('Placed');
-    
+   
   }
 
 status(x: string){
@@ -55,7 +55,7 @@ status(x: string){
        this.status('Delivered')
   }, 3000);
 }
-  
+ 
   searchorder() {
     let id = this.searchdata%12230;
     this.orderservice.searchorder(id).subscribe((res: IOrdermodel[]) => {
@@ -63,22 +63,88 @@ status(x: string){
       this.orderstatus = 'Placed'    
     });
     this.status('Placed');
-    
+   
   }
 
   public getLocation(){
     console.log(document.getElementById("map") as HTMLElement)
     const loader = new Loader({
-      apiKey: "#yourAPi#",
+      apiKey: "#APIKey#",
       version: "weekly",
     });
     loader.load().then(() => {
-       new google.maps.Map(document.getElementById("map") as HTMLElement, {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 8,
-      });
-    });
+      // new google.maps.Map(document.getElementById("map") as HTMLElement, {
+      //   center: { lat: -34.397, lng: 150.644 },
+      //   zoom: 8,
+      const directionsRenderer = new google.maps.DirectionsRenderer();
+      var map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
+        center: { lat: 8.6968797, lng: 76.8148368 },
+        zoom: 15,
+      })
+      directionsRenderer.setMap(map)
+      //  new google.maps.Map(document.getElementById("map") as HTMLElement, {
+      //   center: { lat: 41.850033, lng: -87.6500523 },
+      //   zoom: 8,
+      // });
+
+      var request = {
+        origin: { placeId: "ChIJx41V94frBTsRLHYQf23WIYQ" },
+        destination: { placeId: "ChIJS7_krAfqBTsRVOZerrlqhoQ"},
+        travelMode: google.maps.TravelMode['DRIVING']
+      };
+ 
+       new google.maps.DirectionsService().route(request,function(result, status) {
+        if (status == 'OK') {
+          directionsRenderer.setDirections(result);
+          console.log(result.routes[0].overview_polyline)
+          var polyline = result.routes[0].overview_polyline;
+          console.log(google.maps.geometry.encoding.decodePath(polyline));
+          var x = google.maps.geometry.encoding.decodePath(polyline);
+          console.log(x);
+          const lineSymbol = {
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 8,
+            strokeColor: "#393",
+          };
     
+          const line = new google.maps.Polyline({
+            path: x,
+            icons: [
+              {
+                icon: lineSymbol,
+                offset: "100%",
+              },
+            ],
+            map: map,
+          });
+        
+          animateCircle(line);
+        }
+
+        function animateCircle(line: google.maps.Polyline) {
+          let count = 0;
+        
+          setInterval(() => {
+            count = (count + 1);
+        
+            const icons = line.get("icons");
+        
+            icons[0].offset = count / 2 + "%";
+            line.set("icons", icons);
+          }, 50);
+        }
+      });
+     
+      
+    }).catch((test) => {console.log('test',test);}
+
+    );
+ 
+    setTimeout(() => {
+    console.log('coordinatesx', this.coordinates);
+    }, 3000);
+
   }
+
 
 }
